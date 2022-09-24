@@ -76,9 +76,9 @@ resource "kubernetes_ingress_v1" "ingress" {
     name = format("%s-ingress",each.value.name)
 	annotations = {
 	"kubernetes.io/ingress.class" : "nginx"
-    "kubernetes.io/elb.port" : "80"
+        "kubernetes.io/elb.port" : "80"
 	"nginx.ingress.kubernetes.io/canary" : each.value.name != "foo" ? "true" : "false"         
-    "nginx.ingress.kubernetes.io/canary-weight" : each.value.traffic_weight
+        "nginx.ingress.kubernetes.io/canary-weight" : each.value.traffic_weight
 	}
   }
 
@@ -103,7 +103,6 @@ resource "kubernetes_ingress_v1" "ingress" {
   }
   depends_on = [
     kubernetes_deployment.application,
-	kubernetes_service.services
+    kubernetes_service.services
   ]
 }
-
