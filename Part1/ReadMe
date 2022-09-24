@@ -1,0 +1,7 @@
+#To execute
+
+kubectl apply -f green.yml
+kubectl apply -f blue.yml
+
+kubectl apply -f green-ingress.yml
+kubectl apply -f blue-ingress.yml
